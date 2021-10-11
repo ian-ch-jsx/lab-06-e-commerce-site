@@ -6,6 +6,12 @@ body {
     letter-spacing: 1px;
 }
 
+h1 {
+    font-family: 'Lobster Two', serif;
+    color:#DA5844;
+    font-size: 4rem;
+}
+
 h2 {
     font-family: 'Lobster Two', serif;
     color: #DA5844;
@@ -81,4 +87,9 @@ button {
 
 button:hover {
 opacity: 70%;
+}
+
+footer {
+    padding: 30px;
+    font-size: 1.5rem;
 }
