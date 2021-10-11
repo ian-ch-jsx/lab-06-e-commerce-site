@@ -9,6 +9,7 @@ export function renderProduct(products){
     img.src = products.image;
 
     const description = document.createElement('p');
+    description.classList.add('description');
     description.textContent = products.description;
 
     const categoryList = document.createElement('p');
