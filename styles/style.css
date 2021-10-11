@@ -34,7 +34,7 @@ h2 {
 .product-card img {
     width: 300px;
     border: 4px double #97C4B6;
-    opacity: 60%;
+    opacity: 50%;
 }
 
 .product-card img:hover {
