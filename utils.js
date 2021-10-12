@@ -5,3 +5,16 @@ export function findByID(id, items){
         }
     }
 }
+
+export function calculateOrderTotal(cart, products) {
+    let orderTotal = 0;
+    for (let item of cart){
+        const product = findByID(item.id, products);
+        orderTotal = orderTotal + product.price * item.qty;
+    }
+    return orderTotal;
+}
+
+export function toUSD(number){
+    return number.toLocaleString('en-us', { style: 'currency', currency: 'USD' });
+}
