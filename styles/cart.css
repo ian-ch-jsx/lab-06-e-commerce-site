@@ -1,0 +1,15 @@
+table {
+    border: 3px solid red;
+    border-collapse: collapse;
+    margin: 10px;
+}
+
+thead {
+    background-color:black;
+    border-bottom: 3px solid red;
+}
+
+table, th, table td {
+    padding: 15px;
+    text-align: right;
+}
