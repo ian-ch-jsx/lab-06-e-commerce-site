@@ -1,15 +1,23 @@
 table {
-    border: 3px solid red;
+    background-color: var(--color-3);
+    border: 5px double var(--color-4);
     border-collapse: collapse;
     margin: 10px;
 }
 
 thead {
-    background-color:black;
-    border-bottom: 3px solid red;
+    color: var(--color-2);
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color:var(--color-3);
+    border-bottom: 3px double var(--color-4);
 }
 
 table, th, table td {
     padding: 15px;
     text-align: right;
+}
+
+td {
+    border-bottom:  1px solid var(--color-4);
 }

@@ -1,5 +1,3 @@
-// IMPORT MODULES under test here:
-
 import { renderProduct } from '../render-product.js';
 import { products } from '../data/products.js';
 import { findByID } from '../utils.js';
@@ -7,17 +5,10 @@ import { findByID } from '../utils.js';
 const test = QUnit.test;
 
 test('renderProduct should return an HTML snippet', (expect) => {
-    //Arrange
-    // Set up your arguments and expectations
     const expected = '<div class="product-card"><h2>Necronomicon</h2><img src="./assets/necronomicon.jpg"><p class="description">Hardcover grimoire. Accounts of 106 ancient deities and their respective summoning spells, preferred offerings, and other vital information for successful communication.</p><p class="category">supernatural</p><p class="price">185.00</p><button>add to cart</button></div>';
     const Necronomicon = products[0];
-    
-    //Act 
-    // Call the function you're testing and set the result to a const
     const actual = renderProduct(Necronomicon).outerHTML;
 
-    //Expect
-    // Make assertions about what is expected versus the actual result
     expect.equal(actual, expected);
 });
 
