@@ -25,3 +25,13 @@ test('findById should return the item matching the ID', (expect)=>{
     const actual = findByID('4', products);
     expect.deepEqual(actual, expected);
 });
+
+
+// //expected: Total derived from price and quantity of product ID 
+// // should be equal to the order total
+// test('calcOrderTotal should calculate total cost of order', (expect)=>{
+//     const expected = '1690';
+//     const actual = calculateOrderTotal();
+
+//     expect.equal (actual, expected);
+// });
