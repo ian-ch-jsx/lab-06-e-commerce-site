@@ -13,7 +13,6 @@ export function renderLineItem(cartItem, productsData) {
     tdQty.textContent = cartItem.qty;
 
     const tdTotal = document.createElement('td');
-    // tdTotal.textContent = cartItem.qty * productsData.price;
     const total = cartItem.qty * productsData.price;
     tdTotal.textContent = toUSD(total);
 
