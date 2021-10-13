@@ -1,5 +1,4 @@
 import { products } from '../data/products.js';
-// import { cart } from '../data/cart-data.js';
 import { calculateOrderTotal, findByID, toUSD, getCart } from '../utils.js';
 import { renderLineItem } from '../render-line-items.js';
 
@@ -19,6 +18,7 @@ tdOrderTotal.textContent = toUSD(orderTotal);
 
 const orderButton = document.getElementById('order-button');
 orderButton.addEventListener('click', ()=>{
+    alert('A raven will arrive to collect payment and deliver your goods within the hour.');
     localStorage.removeItem('CART');
     window.location.replace('..');
 });

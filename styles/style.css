@@ -17,6 +17,8 @@ body {
     letter-spacing: 1px;
 }
 
+
+
 h1 {
     font-family: 'Lobster Two', serif;
     color: var(--color-2);
@@ -27,6 +29,16 @@ h2 {
     font-family: 'Lobster Two', serif;
     color: var(--color-2);
     font-size: 2rem;
+}
+
+#head {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin-left: 89%;
+    margin-bottom: 20px;
 }
 
 #product-list {

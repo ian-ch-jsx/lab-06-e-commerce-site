@@ -13,6 +13,6 @@ const buyButtons = document.querySelectorAll('.buy-button');
 for (let buyBtn of buyButtons){
     buyBtn.addEventListener('click', () => {
         addItem(buyBtn.id);
-        alert('This is so annoying!');
+        alert('Item added to your list.');
     });
 }
