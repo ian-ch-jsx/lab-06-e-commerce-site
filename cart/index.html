@@ -1,0 +1,38 @@
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital@0;1&family=Lobster+Two&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/cart.css">
+    <title>Checkout</title>
+</head>
+<body>
+    <h1>Alistair & Crow</h1>
+    <h2>Your Cauldron</h2>
+    <table>
+        <thead>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+        </thead>
+        <tbody id="table-body"></tbody>
+    <tfoot>
+        <td></td>
+        <td></td>
+        <td>Order Total</td>
+        <td id="total">To Be Calculated</td>
+    </tfoot>
+    </table>
+    <button id="place-order">Place Order</button>
+    <a href="../""><button id="return">return to shop</button></a>
+
+    <script type="module" src="./cart.js"></script>
+</body>
+</html>
