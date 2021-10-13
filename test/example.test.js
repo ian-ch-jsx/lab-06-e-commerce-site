@@ -1,6 +1,6 @@
 import { renderProduct } from '../render-product.js';
 import { products } from '../data/products.js';
-import { findByID, getCart } from '../utils.js';
+import { addItem, findByID, getCart } from '../utils.js';
 
 const test = QUnit.test;
 
@@ -44,3 +44,21 @@ test('getCart should return an empty array if the cart does not exist', (expect)
     localStorage.removeItem('CART');
     expect.deepEqual(cart, []);
 });
+
+test('addItem should increment the quantity of an item in the cart', (expect)=>{
+    const fakeCart = [
+        { id: '4', qty: 2 },
+        { id: '3', qty: 3 }
+    ];
+    localStorage.setItem('CART', JSON.stringify(fakeCart));
+
+    addItem('4');
+    const cart = getCart();
+    const expected = [
+        { id: '4', qty: 3 },
+        { id: '3', qty: 3 }
+    ];
+
+    expect.deepEqual(cart, expected);
+});
+
