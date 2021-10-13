@@ -1,6 +1,6 @@
 import { renderProduct } from '../render-product.js';
 import { products } from '../data/products.js';
-import { findByID } from '../utils.js';
+import { findByID, getCart } from '../utils.js';
 
 const test = QUnit.test;
 
@@ -26,12 +26,14 @@ test('findById should return the item matching the ID', (expect)=>{
     expect.deepEqual(actual, expected);
 });
 
+test('getCart should return the cart if it exists', (expect)=>{
+    const fakeCart = [
+        { id: '4', qty: 2 },
+        { id: '3', qty: 3 }
+    ];
+    localStorage.setItem('CART', JSON.stringify(fakeCart));
 
-// //expected: Total derived from price and quantity of product ID 
-// // should be equal to the order total
-// test('calcOrderTotal should calculate total cost of order', (expect)=>{
-//     const expected = '1690';
-//     const actual = calculateOrderTotal();
+    const cart = getCart();
 
-//     expect.equal (actual, expected);
-// });
+    expect.deepEqual(cart, fakeCart);
+});
