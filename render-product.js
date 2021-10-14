@@ -18,13 +18,23 @@ export function renderProduct(products){
 
     const price = document.createElement('p');
     price.classList.add('price');
-    price.textContent = products.price;
+    price.textContent = `$` + products.price;
 
     const buyButton = document.createElement('button');
     buyButton.textContent = 'add to cart';
     buyButton.id = products.id;
     buyButton.classList.add('buy-button');
 
-    productCard.append(productName, img, description, categoryList, price, buyButton);
+    let totalQty = 0;
+
+    buyButton.addEventListener('click', ()=>{
+        totalQty++;
+        productQty.textContent = totalQty + ' in cart';
+    });
+
+    const productQty = document.createElement('p');
+    productQty.classList.add('quantity');
+
+    productCard.append(productName, img, description, categoryList, price, productQty, buyButton);
     return productCard;
 }
