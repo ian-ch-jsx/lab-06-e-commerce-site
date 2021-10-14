@@ -38,3 +38,7 @@ export function addItem(id){
     const stringCart = JSON.stringify(cart);
     localStorage.setItem('CART', stringCart);
 }
+
+export function clearCart() {
+    localStorage.removeItem('CART');
+}

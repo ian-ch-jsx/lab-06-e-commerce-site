@@ -1,6 +1,6 @@
 import { renderProduct } from '../render-product.js';
 import { products } from '../data/products.js';
-import { addItem, findByID, getCart } from '../utils.js';
+import { addItem, clearCart, findByID, getCart } from '../utils.js';
 
 const test = QUnit.test;
 
@@ -73,4 +73,19 @@ test('addItem should add an item if its not already there', (expect) =>{
 
     expect.deepEqual(cart, expected);
 
+});
+
+test('clearCart should clear the cart', (expect) => {
+    const fakeCart = [
+        { id: '4', qty: 2 },
+        { id: '3', qty: 3 }
+    ];
+    localStorage.setItem('CART', JSON.stringify(fakeCart));
+
+    clearCart();
+    const cart = getCart();
+    const expected = [];
+
+    expect.deepEqual(cart, expected);
+    // oh my god I did it.
 });
