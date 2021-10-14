@@ -1,5 +1,5 @@
 import { products } from '../data/products.js';
-import { calculateOrderTotal, findByID, toUSD, getCart } from '../utils.js';
+import { calculateOrderTotal, findByID, toUSD, getCart, clearCart } from '../utils.js';
 import { renderLineItem } from '../render-line-items.js';
 
 const cart = getCart();
@@ -21,4 +21,10 @@ orderButton.addEventListener('click', ()=>{
     alert('A raven will arrive to collect payment and deliver your goods within the hour.');
     localStorage.removeItem('CART');
     window.location.replace('..');
+});
+
+const emptyButton = document.getElementById('clear-cart');
+emptyButton.addEventListener('click', ()=>{
+    clearCart();
+    location.reload();
 });
