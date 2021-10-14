@@ -1,11 +1,11 @@
 import { renderProduct } from '../render-product.js';
 import { products } from '../data/products.js';
-import { addItem, findByID, getCart } from '../utils.js';
+import { addItem, clearCart, findByID, getCart } from '../utils.js';
 
 const test = QUnit.test;
 
 test('renderProduct should return an HTML snippet', (expect) => {
-    const expected = '<div class="product-card"><h2>Necronomicon</h2><img src="./assets/necronomicon.jpg"><p class="description">Hardcover grimoire. Accounts of 106 ancient deities and their respective summoning spells, preferred offerings, and other vital information for successful communication.</p><p class="category">supernatural</p><p class="price">185.00</p><button id="1" class="buy-button">add to cart</button></div>';
+    const expected = '<div class="product-card"><h2>Necronomicon</h2><img src="./assets/necronomicon.jpg"><p class="description">Hardcover grimoire. Accounts of 106 ancient deities and their respective summoning spells, preferred offerings, and other vital information for successful communication.</p><p class="category">supernatural</p><p class="price">$185.00</p><p class="quantity"></p><button id="1" class="buy-button">add to cart</button></div>';
     const Necronomicon = products[0];
     const actual = renderProduct(Necronomicon).outerHTML;
 
@@ -38,12 +38,13 @@ test('getCart should return the cart if it exists', (expect)=>{
     expect.deepEqual(cart, fakeCart);
 });
 
-// test('getCart should return an empty array if the cart does not exist', (expect)=> {
-//     const cart = getCart();
+test('getCart should return an empty array if the cart does not exist', (expect)=> {
+    localStorage.removeItem('CART');
     
-//     localStorage.removeItem('CART');
-//     expect.deepEqual(cart, []);
-// });
+    const cart = getCart();
+
+    expect.deepEqual(cart, []);
+});
 
 test('addItem should increment the quantity of an item in the cart', (expect)=>{
     const fakeCart = [
@@ -73,4 +74,19 @@ test('addItem should add an item if its not already there', (expect) =>{
 
     expect.deepEqual(cart, expected);
 
+});
+
+test('clearCart should clear the cart', (expect) => {
+    const fakeCart = [
+        { id: '4', qty: 2 },
+        { id: '3', qty: 3 }
+    ];
+    localStorage.setItem('CART', JSON.stringify(fakeCart));
+
+    clearCart();
+    const cart = getCart();
+    const expected = [];
+
+    expect.deepEqual(cart, expected);
+    // oh my god I did it.
 });

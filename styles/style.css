@@ -97,6 +97,10 @@ h2 {
     padding: 10px;
     height: 100px;
 }
+.quantity {
+    font-size: 1.3rem;
+    margin-top: 0px;
+}
 
 button {
     background-color: var(--color-2);
