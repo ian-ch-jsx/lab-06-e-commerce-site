@@ -1,11 +1,11 @@
 import { renderProduct } from '../render-product.js';
 import { products } from '../data/products.js';
-import { findByID } from '../utils.js';
+import { addItem, findByID, getCart } from '../utils.js';
 
 const test = QUnit.test;
 
 test('renderProduct should return an HTML snippet', (expect) => {
-    const expected = '<div class="product-card"><h2>Necronomicon</h2><img src="./assets/necronomicon.jpg"><p class="description">Hardcover grimoire. Accounts of 106 ancient deities and their respective summoning spells, preferred offerings, and other vital information for successful communication.</p><p class="category">supernatural</p><p class="price">185.00</p><button>add to cart</button></div>';
+    const expected = '<div class="product-card"><h2>Necronomicon</h2><img src="./assets/necronomicon.jpg"><p class="description">Hardcover grimoire. Accounts of 106 ancient deities and their respective summoning spells, preferred offerings, and other vital information for successful communication.</p><p class="category">supernatural</p><p class="price">185.00</p><button id="1" class="buy-button">add to cart</button></div>';
     const Necronomicon = products[0];
     const actual = renderProduct(Necronomicon).outerHTML;
 
@@ -26,12 +26,51 @@ test('findById should return the item matching the ID', (expect)=>{
     expect.deepEqual(actual, expected);
 });
 
+test('getCart should return the cart if it exists', (expect)=>{
+    const fakeCart = [
+        { id: '4', qty: 2 },
+        { id: '3', qty: 3 }
+    ];
+    localStorage.setItem('CART', JSON.stringify(fakeCart));
 
-// //expected: Total derived from price and quantity of product ID 
-// // should be equal to the order total
-// test('calcOrderTotal should calculate total cost of order', (expect)=>{
-//     const expected = '1690';
-//     const actual = calculateOrderTotal();
+    const cart = getCart();
 
-//     expect.equal (actual, expected);
+    expect.deepEqual(cart, fakeCart);
+});
+
+// test('getCart should return an empty array if the cart does not exist', (expect)=> {
+//     const cart = getCart();
+    
+//     localStorage.removeItem('CART');
+//     expect.deepEqual(cart, []);
 // });
+
+test('addItem should increment the quantity of an item in the cart', (expect)=>{
+    const fakeCart = [
+        { id: '4', qty: 2 },
+        { id: '3', qty: 3 }
+    ];
+    localStorage.setItem('CART', JSON.stringify(fakeCart));
+
+    addItem('4');
+    const cart = getCart();
+    const expected = [
+        { id: '4', qty: 3 },
+        { id: '3', qty: 3 }
+    ];
+
+    expect.deepEqual(cart, expected);
+});
+
+test('addItem should add an item if its not already there', (expect) =>{
+    localStorage.removeItem('CART');
+    
+    const expected = [{ id: '1', qty: 1 }];
+    
+    // act
+    addItem('1');
+    const cart = getCart();
+
+    expect.deepEqual(cart, expected);
+
+});

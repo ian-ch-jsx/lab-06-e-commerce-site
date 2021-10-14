@@ -22,6 +22,8 @@ export function renderProduct(products){
 
     const buyButton = document.createElement('button');
     buyButton.textContent = 'add to cart';
+    buyButton.id = products.id;
+    buyButton.classList.add('buy-button');
 
     productCard.append(productName, img, description, categoryList, price, buyButton);
     return productCard;
