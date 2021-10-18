@@ -21,4 +21,7 @@ form.addEventListener('submit', (e) =>{
     document.getElementById('add-form').reset();
 });
 
-clearButton.addEventListener('click', clearInventory());
+clearButton.addEventListener('click', ()=>{
+    clearInventory();
+    alert('cleared inventory items');
+});
