@@ -33,14 +33,13 @@ h2 {
 }
 
 #head {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    margin-left: 89%;
+    display: flex;
+    direction: rtl;
+    width:max-content;
+    grid-template-rows: 1;
     margin-bottom: 0px;
     margin-top: 20px;
+    margin-left: 80%;
 }
 
 #product-list {
