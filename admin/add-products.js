@@ -1,4 +1,3 @@
-// import { products } from '../data/products.js';
 import { addProduct, clearInventory } from '../utils.js';
 
 const form = document.getElementById('add-form');
