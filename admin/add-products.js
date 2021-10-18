@@ -1,6 +1,8 @@
-import { addProduct } from '../utils.js';
+// import { products } from '../data/products.js';
+import { addProduct, clearInventory } from '../utils.js';
 
 const form = document.getElementById('add-form');
+const clearButton = document.getElementById('clear-inventory');
 
 form.addEventListener('submit', (e) =>{
     e.preventDefault();
@@ -18,3 +20,5 @@ form.addEventListener('submit', (e) =>{
     alert('new product listed!');
     document.getElementById('add-form').reset();
 });
+
+clearButton.addEventListener('click', clearInventory());

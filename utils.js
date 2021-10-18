@@ -64,3 +64,7 @@ export function addProduct(newProduct){
     let productsString = JSON.stringify(addedProducts);
     localStorage.setItem('PRODUCTS', productsString);
 }
+
+export function clearInventory(){
+    localStorage.clear();
+}
