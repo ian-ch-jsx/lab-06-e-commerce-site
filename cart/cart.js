@@ -1,8 +1,8 @@
-import { products } from '../data/products.js';
-import { calculateOrderTotal, findByID, toUSD, getCart, clearCart } from '../utils.js';
+import { calculateOrderTotal, findByID, toUSD, getCart, clearCart, getProducts } from '../utils.js';
 import { renderLineItem } from '../render-line-items.js';
 
 const cart = getCart();
+const products = getProducts();
 const tbody = document.getElementById('table-body');
 
 for (let cartItem of cart){

@@ -1,6 +1,6 @@
 import { renderProduct } from '../render-product.js';
 import { products } from '../data/products.js';
-import { addItem, clearCart, findByID, getCart } from '../utils.js';
+import { addItem, clearCart, findByID, getCart, addProduct, getProducts } from '../utils.js';
 
 const test = QUnit.test;
 
@@ -89,4 +89,20 @@ test('clearCart should clear the cart', (expect) => {
 
     expect.deepEqual(cart, expected);
     // oh my god I did it.
+});
+
+test('addProduct should add a product to the products array', (expect)=>{
+    let addedProducts = getProducts();
+    const newProduct = {
+        id:'6',
+        name: 'Rat tooth',
+        img: './assets/rat-tooth.jpg',
+        description: 'a rat tooth',
+        category: 'misc'
+    };
+
+    addProduct(newProduct);
+
+    addedProducts = getProducts();
+    expect.equal(addedProducts.length, 6);
 });

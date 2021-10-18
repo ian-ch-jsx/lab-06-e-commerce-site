@@ -55,3 +55,12 @@ export function getProducts() {
     }
     return addedProducts || products;
 }
+
+export function addProduct(newProduct){
+    let addedProducts = getProducts();
+    
+    addedProducts.push(newProduct);
+
+    let productsString = JSON.stringify(addedProducts);
+    localStorage.setItem('PRODUCTS', productsString);
+}
