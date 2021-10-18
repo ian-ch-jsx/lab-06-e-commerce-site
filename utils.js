@@ -42,15 +42,16 @@ export function addItem(id){
 export function clearCart() {
     localStorage.removeItem('CART');
 }
-// import { products } from './data/products.js';
-// export function getProducts() {
-//     // get the PRODUCTS from localStorage
-//     let lsProducts = localStorage.getItem('PRODUCTS');
-//     const products = JSON.parse(lsProducts)
-//     // if there are no PRODUCTS in local storage -- seed the data
-//     if (!lsProducts){
-//         const productsString = JSON.stringify(products);
-//         localStorage.setItem('PRODUCTS', productsString);
-//     }
-//     return lsProducts || products;
-// }
+
+import { products } from './data/products.js';
+
+export function getProducts() {
+    let lsProducts = localStorage.getItem('PRODUCTS');
+    const addedProducts = JSON.parse(lsProducts);
+
+    if (!products){
+        const productsString = JSON.stringify(addedProducts);
+        localStorage.setItem('PRODUCTS', productsString);
+    }
+    return addedProducts || products;
+}
