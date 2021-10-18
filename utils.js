@@ -42,3 +42,29 @@ export function addItem(id){
 export function clearCart() {
     localStorage.removeItem('CART');
 }
+
+import { products } from './data/products.js';
+
+export function getProducts() {
+    let lsProducts = localStorage.getItem('PRODUCTS');
+    const addedProducts = JSON.parse(lsProducts);
+
+    if (!products){
+        const productsString = JSON.stringify(addedProducts);
+        localStorage.setItem('PRODUCTS', productsString);
+    }
+    return addedProducts || products;
+}
+
+export function addProduct(newProduct){
+    let addedProducts = getProducts();
+    
+    addedProducts.push(newProduct);
+
+    let productsString = JSON.stringify(addedProducts);
+    localStorage.setItem('PRODUCTS', productsString);
+}
+
+export function clearInventory(){
+    localStorage.clear();
+}

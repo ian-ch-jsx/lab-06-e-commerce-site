@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital@0;1&family=Lobster+Two&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/cart.css">
+    <link rel="stylesheet" href="../styles/admin.css">
+    <title>Admin Page</title>
+</head>
+<body>
+    <h1>Add a Product</h1>
+    <form id="add-form">
+        <section>
+            Product ID: <br>
+            <input type="text" name="id" id="id">
+        </section>
+        <section>
+            Name: <br>
+            <input type="text" name="name-input" id="name-input">
+        </section>
+        <section>
+            Image (url): <br>
+            <input type="text" name="image-input" id="image-input">
+        </section>
+        <section>
+            Description: <br>
+            <input type="text" name="description-input" id="description-input">
+        </section>
+        <section>
+            Category: <br>
+            <input type="text" name="category-input" id="category-input">
+        </section>
+        <section>
+            Price: <br>
+            <input type="number" name="price-input" id="price-input">
+        </section>
+        <section>
+            <button id="submit-new">Add Product</button>
+        </section>
+    </form>
+    <section>
+        <p>         
+            <button id="clear-inventory">Clear Inventory</button>
+        </p>
+    </section>
+    <section>
+        <p>
+            <a href="../index.html"><button>store front</button></a>
+            <a href="../cart/index.html"><button>view cart</button></a>
+        </p>
+    </section>
+    <script type="module" src="./add-products.js"></script>
+</body>
+</html>

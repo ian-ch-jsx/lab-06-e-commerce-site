@@ -1,8 +1,9 @@
 import { renderProduct } from './render-product.js';
-import { products } from './data/products.js';
-import { addItem } from './utils.js';
+import { addItem, getProducts } from './utils.js';
 
 const productList = document.getElementById('product-list');
+
+const products = getProducts();
 
 for (let item of products){
     const productCard = renderProduct(item);
