@@ -16,4 +16,5 @@ form.addEventListener('submit', (e) =>{
 
     addProduct(newProduct);
     alert('new product listed!');
+    document.getElementById('add-form').reset();
 });
